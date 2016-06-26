@@ -20,9 +20,9 @@ io.on('connection', function(socket){
   });
     
     
-  socket.on('incrementor', function(msg){
+  socket.on('sequencePi', function(msg){
       if (val != msg) {
-          console.log('Incrementor: ' + msg);
+          console.log('inValue: ' + msg);
           val = msg;
       }
   });
