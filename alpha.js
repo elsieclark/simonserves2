@@ -4,7 +4,7 @@ var io = require('socket.io')(http);
 var port = process.env.PORT || 3000;
 
 var sequenceFromPi = ""
-var sequenceFromPhone = "[8,8,8,8]"
+var sequenceFromPhone = "[8, 8, 8, 8]"
 
 app.get('/', function(req, res){
   res.sendfile('index.html');
