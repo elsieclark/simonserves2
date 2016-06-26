@@ -1,0 +1,15 @@
+<html>
+  <body>
+    <p id='server-time'></p>
+    <input id="dataentry" type="text" name="firstname">
+    <script src="/socket.io/socket.io.js"></script>
+    <script>
+      var socket = io("localhost:3000");
+      var el = document.getElementById('server-time');
+      socket.on('sequencePi', function(timeString) {
+        el.innerHTML = 'Server time: ' + timeString;
+      });
+    </script>
+    
+  </body>
+</html>
