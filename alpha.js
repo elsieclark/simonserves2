@@ -20,14 +20,14 @@ io.on('connection', function(socket){
     
     
   socket.on('sequencePi', function(msg){
-      if (sequenceFromPi != msg && sequenceFromPi != "") {
+      if (sequenceFromPi != msg && msg != "") {
           console.log('sequenceFromPi: ' + msg);
           sequenceFromPi = msg;
       }
   });
     
   socket.on('sequencePhone', function(msg){
-      if (sequenceFromPhone != msg && sequenceFromPi != "") {
+      if (sequenceFromPhone != msg && msg != "") {
           console.log('sequenceFromPhone: ' + msg);
           sequenceFromPhone = msg;
       }
@@ -41,5 +41,5 @@ http.listen(port, function(){
 
 // http://[2620:101:f000:700:c9b8:4484:a65d:df7f]:3000/
 
-setInterval(() => io.emit('sequencePi', sequenceFromPi), 500);
+setInterval(() => io.emit('sequencePi', sequenceFromPhone), 500);
 setInterval(() => io.emit('sequencePhone', sequenceFromPi), 500);
