@@ -2,7 +2,9 @@ var app = require('express')();
 var http = require('http').Server(app);
 var io = require('socket.io')(http);
 var port = process.env.PORT || 3000;
-var val = "default"
+
+var sequenceFromPi = "[2,3,3,1]"
+var sequenceFromPhone = "[0,3,0,2]"
 
 app.get('/', function(req, res){
   res.sendfile('index.html');
@@ -16,15 +18,18 @@ io.on('connection', function(socket){
     console.log('user disconnected');
   });
     
-  socket.on('chat message', function(msg){
-    console.log('message: ' + msg);
-  });
-    
     
   socket.on('sequencePi', function(msg){
-      if (val != msg) {
-          console.log('inValue: ' + msg);
-          val = msg;
+      if (sequenceFromPi != msg) {
+          console.log('sequenceFromPi: ' + msg);
+          sequenceFromPi = msg;
+      }
+  });
+    
+  socket.on('sequencePhone', function(msg){
+      if (sequenceFromPhone != msg) {
+          console.log('sequenceFromPhone: ' + msg);
+          sequenceFromPhone = msg;
       }
   });
     
@@ -36,4 +41,5 @@ http.listen(port, function(){
 
 // http://[2620:101:f000:700:c9b8:4484:a65d:df7f]:3000/
 
-setInterval(() => io.emit('sequencePi', "Back again: " + val), 500);
+setInterval(() => io.emit('sequencePi', sequenceFromPi), 500);
+setInterval(() => io.emit('sequencePhone', sequenceFromPi), 500);

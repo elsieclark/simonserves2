@@ -1,7 +1,9 @@
 <html>
   <body>
     <p id='server-time'></p>
-    <input id="dataentry" type="text" name="firstname">
+    <form name="formOne">
+        <input id="dataentry" type="text" name="firstname">
+    </form>
     <script src="/socket.io/socket.io.js"></script>
     <script>
       var socket = io("https://simonserves2.herokuapp.com");
