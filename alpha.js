@@ -20,14 +20,14 @@ io.on('connection', function(socket){
     
     
   socket.on('sequencePi', function(msg){
-      if (sequenceFromPi != msg) {
+      if (sequenceFromPi != msg && sequenceFromPi != "") {
           console.log('sequenceFromPi: ' + msg);
           sequenceFromPi = msg;
       }
   });
     
   socket.on('sequencePhone', function(msg){
-      if (sequenceFromPhone != msg) {
+      if (sequenceFromPhone != msg && sequenceFromPi != "") {
           console.log('sequenceFromPhone: ' + msg);
           sequenceFromPhone = msg;
       }
