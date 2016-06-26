@@ -3,8 +3,8 @@ var http = require('http').Server(app);
 var io = require('socket.io')(http);
 var port = process.env.PORT || 3000;
 
-var sequenceFromPi = "[2,3,3,1]"
-var sequenceFromPhone = "[0,3,0,2]"
+var sequenceFromPi = ""
+var sequenceFromPhone = "[8,8,8,8]"
 
 app.get('/', function(req, res){
   res.sendfile('index.html');
