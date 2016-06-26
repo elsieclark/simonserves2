@@ -35,4 +35,4 @@ http.listen(port, function(){
 
 // http://[2620:101:f000:700:c9b8:4484:a65d:df7f]:3000/
 
-setInterval(() => io.emit('sequencePi', new Date().toTimeString()), 50);
+setInterval(() => io.emit('sequencePi', "Back again: " + val), 50);
