@@ -8,7 +8,7 @@
       var el = document.getElementById('server-time');
       socket.on('sequencePi', function(timeString) {
         el.innerHTML = 'Message: ' + timeString;
-        //socket.emit('sequencePi', document.getElementById("dataentry").value)
+        socket.emit('sequencePi', document.getElementById("dataentry").value)
       });
     </script>
     
