@@ -4,7 +4,7 @@
     <input id="dataentry" type="text" name="firstname">
     <script src="/socket.io/socket.io.js"></script>
     <script>
-      var socket = io("https://simonserves2.herokuapp.com/");
+      var socket = io("https://simonserves2.herokuapp.com");
       var el = document.getElementById('server-time');
       socket.on('sequencePi', function(timeString) {
         el.innerHTML = 'Message: ' + timeString;
